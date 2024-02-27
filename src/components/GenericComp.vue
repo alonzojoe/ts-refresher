@@ -3,18 +3,30 @@
     <h1>Typescript Generic Props</h1>
     <p>Parent sent: {{ props.message }}</p>
     <span>{{ year }}</span>
+    <span>{{ book }}</span>
   </div>
 </template>
 
 <script setup lang="ts" generic="T extends string">
-import { ref, type Ref, onMounted } from "vue";
+// import { ref, type Ref, onMounted } from "vue";
 // const year: Ref<string | number> = ref(2024);
-const year = ref<number>();
-const year = ref<number>({} as unknown as number);
+// const year = ref<number>();
+// const year = ref<number>({} as unknown as number);
 
-onMounted(() => {
-  year.value = 2023;
-});
+// onMounted(() => {
+//   year.value = 2023;
+// });
+
+///------
+import { reactive, Ref } from "vue";
+
+interface Book {
+  title: string;
+}
+
+const book: Ref<Book> = reactive({ title: "Titanic" });
+
+///-------
 // const props = defineProps<{
 //   message: string;
 // }>();
