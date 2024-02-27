@@ -7,8 +7,14 @@
 </template>
 
 <script setup lang="ts" generic="T extends string">
-import { ref, type Ref } from "vue";
-const year: Ref<string | number> = ref(2024);
+import { ref, type Ref, onMounted } from "vue";
+// const year: Ref<string | number> = ref(2024);
+const year = ref<number>();
+const year = ref<number>({} as unknown as number);
+
+onMounted(() => {
+  year.value = 2023;
+});
 // const props = defineProps<{
 //   message: string;
 // }>();
