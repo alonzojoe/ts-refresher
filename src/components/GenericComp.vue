@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends string">
 const { message = "Parent did not send prop" } = defineProps<{
   message?: string;
 }>();
