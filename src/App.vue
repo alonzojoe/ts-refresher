@@ -6,7 +6,7 @@ const greetings = ref("Hello  World!");
 </script>
 
 <template>
-  <GenericComp :message="greetings" />
+  <GenericComp />
 </template>
 
 <style scoped>

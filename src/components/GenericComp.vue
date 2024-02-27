@@ -1,12 +1,14 @@
 <template>
   <div class="box">
     <h1>Typescript Generic Props</h1>
-    <p>Parent sent: {{ props.message }}</p>
+    <p>Parent sent: {{ message }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ message?: string }>();
+const { message = "Parent did not send prop" } = defineProps<{
+  message?: string;
+}>();
 </script>
 
 <style scoped>
@@ -15,5 +17,6 @@ const props = defineProps<{ message?: string }>();
   width: 500px;
   border: 1px solid #fff;
   padding: 50px;
+  border-radius: 15px;
 }
 </style>
