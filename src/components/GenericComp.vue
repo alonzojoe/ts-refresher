@@ -6,9 +6,11 @@
 </template>
 
 <script setup lang="ts" generic="T extends string">
-const { message = "Parent did not send prop" } = defineProps<{
-  message?: string;
-}>();
+// const { message = "Parent did not send prop" } = defineProps<{
+//   message: string;
+// }>();
+import { type GenericComp } from "./types";
+defineProps<GenericComp<T>>();
 </script>
 
 <style scoped>
