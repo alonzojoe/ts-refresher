@@ -24,9 +24,14 @@
 //   message: Object as PropType<Props>,
 // });
 
-const props = withDefaults(defineProps<{ message: string }>(), {
+const props = withDefaults(defineProps<{ message?: string }>(), {
   message: "default message when parent did not send me prop :(",
 });
+
+const emit = defineEmits<{
+  (e: "change", id: number): void;
+  (e: "update", value: string): void;
+}>();
 </script>
 
 <style scoped>
