@@ -28,16 +28,22 @@ const props = withDefaults(defineProps<{ message?: string }>(), {
   message: "default message when parent did not send me prop :(",
 });
 
-const emit = defineEmits<{
-  //When passing state type to parent
-  (e: "change", id: number): void;
-  (e: "update", value: string): void;
-}>();
+// const emit = defineEmits<{
+//   //When passing state type to parent
+//   (e: "change", id: number): void;
+//   (e: "update", value: string): void;
+// }>();
 
+// const emit = defineEmits<{
+//   // When triggering an action and no state is passed to the parent
+//   (e: "update"): void;
+//   (e: "change"): void;
+// }>();
+
+// newstyle in vue3
 const emit = defineEmits<{
-  // When triggering an action and no state is passed to the parent
-  (e: "update"): void;
-  (e: "change"): void;
+  change: [id: string];
+  update: [value: string];
 }>();
 </script>
 
