@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <h1>Typescript Generic Props</h1>
+    <h1>Typescript Generic Component</h1>
     <p>Parent sent: {{ props.message }}</p>
     <span>{{ year }}</span>
     <p>{{ book }}</p>
@@ -19,7 +19,8 @@
 // });
 
 ///------
-import { ref, reactive, Ref, computed } from "vue";
+
+import { ref, reactive, type Ref, computed } from "vue";
 //Joe TypeScript Refresher
 interface Book {
   title: string;
@@ -32,6 +33,13 @@ const book: Ref<Book> = reactive({
   author: "James Cameron",
   pageCount: 505,
 });
+
+//alternative
+// const book = reactive<Book>({
+//   title: "Titanic 1997",
+//   author: "James Cameron",
+//   pageCount: 505,
+// });
 
 interface Movie {
   title: string;
@@ -49,6 +57,7 @@ const movie: Ref<Movie> = ref({
   isShowing: false,
 });
 
+//computed properties
 const numericValue = computed<number>(() => 1 + 1);
 
 const props = withDefaults(defineProps<{ message?: string }>(), {
@@ -104,7 +113,7 @@ const emit = defineEmits<{
 
 <style scoped>
 .box {
-  height: 300px;
+  height: 400px;
   width: 500px;
   border: 1px solid #fff;
   padding: 50px;
